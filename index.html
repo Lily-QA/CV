@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Мой первый сайт</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Добро пожаловать на мой первый сайт</h1>
+    </header>
+    <div class="container">  
+        <div class="slides">
+            <img src="photo_5411237809311833257_y.jpg" alt="Фото 1">
+            <img src="photo_5411237809311833259_y.jpg" alt="Фото 2">
+            <img src="photo_5411237809311833258_y.jpg" alt="Фото 3">
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#about">О себе</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+    </nav>
+    <section id="about">
+        <h2>О себе</h2>
+        <p>Привет. Я начинающий тестировщик, а это мой первый сайт</p>
+    </section>
+    <section id="contact">
+        <h2>Контакты</h2>
+        <p>
+            <a href="https://t.me/luginaliliia">Telegram</a>
+            <a href="https://vk.com/liliyalugina">ВКонтакте</a>
+            <a href="https://www.instagram.com/p/C7v4OGwNPzb/?igsh=Z3YwbXB3ODFueTkz">Instagram</a>
+        </p>
+    </section>
+    <footer>
+        <p>&copy; 2024 Мой первый сайт</p>
+    </footer>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slides img');
+
+        function showSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function moveSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        // Инициализация первого слайда
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
